@@ -5,7 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Jasa SLF Depok | Konsultasi Sertifikat Laik Fungsi Bangunan</title>
+    <meta name="description"
+        content="Jasa pengurusan Sertifikat Laik Fungsi (SLF) Depok. Konsultasi gratis, proses mudah, legalitas terjamin untuk bisnis dan properti Anda.">
+    <meta name="keywords"
+        content="SLF Depok, Jasa SLF, Sertifikat Laik Fungsi, Konsultasi SLF, SLF Bangunan, SLF Properti, Legalitas Bangunan Depok, Pengurusan SLF Depok">
+
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -213,6 +218,63 @@
             </div>
         </div>
     </section>
+
+    {{-- informasi terbaru --}}
+    <section id="informasi" class="h-auto bg-white">
+        <div class="flex flex-col lg:flex-row">
+            @foreach ($responselates as $item)
+                <div class="w-full lg:w-[60%] 2xl:w-1/2 p-10">
+                    <div class="max-w-screen-xl">
+                        <img src="{{ $item->featured_media_src_url ?? 'default-image.jpg' }}" loading="lazy"
+                            class="object-cover w-full h-full" alt="artikel rekanusa">
+                        <div class="py-5 text-justify font-poppins 2xl:mb-5 2xl:text-base text-paragraph">
+                            {!! $item->excerpt->rendered ?? '<p>No excerpt available.</p>' !!}
+                        </div>
+                    </div>
+                    <div class="text-end">
+                        <a href="{{ $item->link ?? '#' }}" target="_blank"
+                            class="px-10 py-4 font-bold uppercase rounded-xl shadow-2xl drop-shadow-2xl transition-all text-white bg-tombol hover:scale-105 hover:bg-tombol/80 font-poppins">
+                            selengkapnya
+                        </a>
+                    </div>
+                </div>
+            @endforeach
+
+
+            <div class="w-full lg:w-[40%] 2xl:w-1/2 py-10 px-5">
+                <h4 class="mb-10 text-3xl font-bold uppercase">
+                    Informasi <span class="px-1 text-white bg-judul">Terbaru</span>
+                </h4>
+                <div class="flex flex-col">
+                    @forelse ($responselimit as $item)
+                        <a href="{{ $item->link }}" target="_blank">
+                            <div
+                                class="flex flex-col gap-4 justify-center items-center px-2 py-5 text-center transition-all cursor-pointer 2xl:items-start md:text-left md:flex-row md:justify-between group hover:bg-judul">
+                                <div class="w-full md:w-[40%]">
+                                    <img src="{{ $item->featured_media_src_url }}" loading="lazy"
+                                        class="object-cover w-full h-full rounded-xl" alt="artikel rekanusa">
+                                </div>
+                                <div class="w-full md:w-[60%]">
+                                    <h5
+                                        class="mb-2 font-semibold 2xl:text-xl font-inter text-primary group-hover:text-white">
+                                        {!! $item->title->rendered !!}
+                                    </h5>
+                                    <div
+                                        class="text-base text-justify line-clamp-3 lg:text-xs 2xl:text-base text-paragraph font-poppins group-hover:text-white">
+                                        {!! $item->excerpt->rendered !!}
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    @empty
+                        <p>Data artikel tidak ditemukan.</p>
+                    @endforelse
+
+                </div>
+            </div>
+        </div>
+    </section>
+    {{-- end informasi terbaru --}}
 
     <section class="relative">
         <div class="container mx-auto">
