@@ -11,12 +11,12 @@ class GeneralControllers extends Controller
     private function fetchPostsAsync($limit)
     {
         $client = new Client();
-        $apiUrl = "https://excellentteam.id/artikel/wp-json/wp/v2/posts";
+        $apiUrl = "https://jasakonsultanslf.com/artikel/wp-json/wp/v2/posts";
 
         $promises = [
             'posts' => $client->getAsync($apiUrl, [
                 'verify' => false,
-                'auth' => ['dimasbon', 'dongorasta'],
+                'auth' => ['admin', '@adminslf321'],
             ])
         ];
 
